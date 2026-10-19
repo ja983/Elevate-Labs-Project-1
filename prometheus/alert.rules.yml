@@ -1,0 +1,18 @@
+groups:
+  - name: self-healing
+    rules:
+      - alert: NginxDown
+        expr: probe_success{job="nginx-blackbox"} == 0
+        for: 15s
+        labels:
+          severity: critical
+        annotations:
+          summary: "NGINX is down"
+
+      - alert: HighCPU
+        expr: 100 - (avg(rate(node_cpu_seconds_total{mode="idle"}[1m])) * 100) > 90
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "CPU above 90%"

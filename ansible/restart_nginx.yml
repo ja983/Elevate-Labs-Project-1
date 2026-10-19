@@ -1,0 +1,21 @@
+- name: Self-heal NGINX
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Restart the nginx container
+      ansible.builtin.command: docker restart nginx
+      register: result
+
+    - name: Show result
+      ansible.builtin.debug:
+        msg: "Restarted: {{ result.stdout }}"
+
+    - name: Verify NGINX responds
+      ansible.builtin.uri:
+        url: http://localhost:8081
+        status_code: 200
+      retries: 5
+      delay: 2
+      register: check
+      until: check.status == 200

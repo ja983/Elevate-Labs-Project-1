@@ -1,0 +1,7 @@
+- name: Handle high CPU
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Capture top CPU processes
+      ansible.builtin.shell: "ps aux --sort=-%cpu | head -6 >> /tmp/high_cpu_report.log"

@@ -1,0 +1,43 @@
+2026-10-19 06:12:00,955 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.27.78.135:5001
+2026-10-19 06:12:00,955 [33mPress CTRL+C to quit[0m
+2026-10-19 06:15:09,741 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.27.78.135:5001
+2026-10-19 06:15:09,741 [33mPress CTRL+C to quit[0m
+2026-10-19 06:20:36,701 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.27.78.135:5001
+2026-10-19 06:20:36,702 [33mPress CTRL+C to quit[0m
+2026-10-19 06:31:14,095 [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://172.27.78.135:5001
+2026-10-19 06:31:14,095 [33mPress CTRL+C to quit[0m
+2026-10-19 06:32:15,822 Received NginxDown (firing)
+2026-10-19 06:32:15,822 Running ansible/restart_nginx.yml
+2026-10-19 06:32:19,073 
+PLAY [Self-heal NGINX] *********************************************************
+
+TASK [Restart the nginx container] *********************************************
+changed: [localhost]
+
+TASK [Show result] *************************************************************
+ok: [localhost] => {
+    "msg": "Restarted: nginx"
+}
+
+TASK [Verify NGINX responds] ***************************************************
+ok: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+
+2026-10-19 06:32:19,074 172.18.0.3 - - [19/Oct/2026 06:32:19] "POST /alert HTTP/1.1" 200 -
+2026-10-19 06:32:24,749 Received NginxDown (resolved)
+2026-10-19 06:32:24,750 172.18.0.3 - - [19/Oct/2026 06:32:24] "POST /alert HTTP/1.1" 200 -

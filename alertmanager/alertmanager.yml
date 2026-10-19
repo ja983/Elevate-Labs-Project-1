@@ -1,0 +1,12 @@
+route:
+  receiver: healing-webhook
+  group_by: ["alertname"]
+  group_wait: 5s
+  group_interval: 10s
+  repeat_interval: 1m
+
+receivers:
+  - name: healing-webhook
+    webhook_configs:
+      - url: "http://host.docker.internal:5001/alert"
+        send_resolved: true
